@@ -1,1 +1,1 @@
-Create and manage tasks that need to get done around the house.  Login to see what your honey has added to your list, or add a task for your hiney to do.  Equal opportunity lifr improvements await!  Post, edit and delete tasks as needed.  
+Create and manage tasks that need to get done around the house.  Login to see what your honey has added to your list, or add a task for your honey to do.  Equal opportunity life improvements await!  Post, edit and delete tasks as needed.  
