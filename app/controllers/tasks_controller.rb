@@ -17,4 +17,14 @@ class TasksController < ApplicationController
       erb :'/tasks/new'
     end
   end
+
+  post '/tasks' do
+    @task = Task.create(title:params[:title])
+    if @task.save
+      erb :"/tasks/#{@task.id}"
+    else
+      redirect "/tasks/new"
+    end
+  end
+
 end
