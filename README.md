@@ -1,1 +1,1 @@
-# sinatra-honey-do-list-v-000
+Create and manage tasks that need to get done around the house.  Login to see what your honey has added to your list, or add a task for your hiney to do.  Equal opportunity lifr improvements await!  Post, edit and delete tasks as needed.  
