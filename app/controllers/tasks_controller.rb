@@ -21,9 +21,8 @@ class TasksController < ApplicationController
 
   post '/tasks' do
     @task = Task.new(:title => params[:title])
-    @task.user = User.find_or_create_by(user_id: params[:user_id])
     @task.save
-    #binding.pry
+
     erb :'/tasks/show'
   end
 
@@ -32,4 +31,21 @@ class TasksController < ApplicationController
     erb :'/tasks/show'
   end
 
+  get '/tasks/:id/edit' do
+    @task = Task.find(params[:id])
+
+    erb :'/tasks/edit'
+  end
+
+  patch '/tasks/:id' do
+    @task = Task.find_by_id(params[:id])
+    @task.update(title: params[:title])
+    redirect "/tasks/#{params[:id]}"
+  end
+
+  delete '/tasks/:id/delete' do
+    @task = Task.find_by_id(params[:id])
+    @task.destroy
+    erb :'/tasks/deleted'
+  end
 end

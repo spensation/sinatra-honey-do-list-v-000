@@ -1,5 +1,4 @@
 <h2><%= @task.title %></h2>
-<h2><%= @task.user.username %></h2>
 
 <form action="/tasks/<%= @task.id %>/edit" method="patch">
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -8,5 +7,5 @@
 
 <form action="/tasks/<%= @task.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
+  <input type="submit" value="DELETE">
 </form>

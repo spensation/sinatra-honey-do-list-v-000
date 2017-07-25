@@ -7,10 +7,14 @@ class UsersController < ApplicationController
   post '/signup' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if @user.save
-      redirect '/tasks'
+      erb :'/users/show'
     else
       redirect '/signup'
     end
+  end
+
+  get '/users/show' do
+    erd :'/users/show'
   end
 
 end
