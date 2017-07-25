@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 3) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+  end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.string "title"
   end
 
   create_table "users", force: :cascade do |t|
