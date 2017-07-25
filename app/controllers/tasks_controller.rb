@@ -1,3 +1,4 @@
+require 'pry'
 class TasksController < ApplicationController
 
   get '/tasks' do
@@ -19,12 +20,16 @@ class TasksController < ApplicationController
   end
 
   post '/tasks' do
-    @task = Task.create(title:params[:title])
-    if @task.save
-      erb :"/tasks/#{@task.id}"
-    else
-      redirect "/tasks/new"
-    end
+    @task = Task.new(:title => params[:title])
+    @task.user = User.find_or_create_by(user_id: params[:user_id])
+    @task.save
+    #binding.pry
+    erb :'/tasks/show'
+  end
+
+  get '/tasks/:id' do
+    @task = Task.find_by_id(params[:id])
+    erb :'/tasks/show'
   end
 
 end
