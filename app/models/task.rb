@@ -1,6 +1,8 @@
 class Task < ActiveRecord::Base
+  validates :name, presence: true
 
-  validates :title, presence: true
-  belongs_to :user
-  has_many :comments
+  has_many :task_types
+  has_many :types, through: :task_types
+  has_many :list_tasks
+  has_many :lists, through: :list_tasks
 end

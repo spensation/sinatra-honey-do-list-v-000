@@ -1,2 +1,4 @@
-<h2><%= @user.username %></h2>
-<p>Click on tasks link to see what needs doing!</p>
+<h2>Welcome, <%= @user.username %>!</h2>
+<% @user.tasks.each do |task| %>
+<h4><%=task.title%></h4>
+<%end%>

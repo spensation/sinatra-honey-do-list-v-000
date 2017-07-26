@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/show' do
+  get '/users/:id' do
+    @user = User.find_by_id(:id)
     erb :'/users/show'
   end
 
