@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/show' do
-    erd :'/users/show'
+    erb :'/users/show'
   end
 
 end

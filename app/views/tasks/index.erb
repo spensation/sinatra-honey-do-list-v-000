@@ -1,8 +1,9 @@
-<h1>Tasks that need doing!</h1>
-<h2>Welcome, <%=@user.username%></h2>
+<h1>Welcome, <%=@user.username%></h1>
+<h2>Tasks that need doing:</h2>
 <%@tasks.each do |task|%>
-<h3><a href="<%=task.id%>"></a></h3>
+<h4><a href="/tasks/<%=task.id%>"><%=task.title%></a></h4>
 <%end%>
 
-<a href="/tasks/new">Create a new task!</a>
+<h3><a href="/tasks/new">Create a new task!</a></h3>
+<br></br>
 <a href="/logout">Logout</a>
