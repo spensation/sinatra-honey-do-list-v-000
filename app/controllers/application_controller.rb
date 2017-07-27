@@ -6,8 +6,12 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   get '/' do
-    erb :index
-  end
+   if logged_in? 
+     redirect '/users/home'
+   else
+     erb :index
+   end
+ end
 
   helpers do
     def logged_in?
@@ -17,6 +21,7 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find(session[:user_id])
     end
+
   end
 
 end

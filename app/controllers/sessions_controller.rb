@@ -1,3 +1,4 @@
+require 'pry'
 class SessionsController < ApplicationController
 
   get '/login' do
@@ -5,10 +6,12 @@ class SessionsController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect "/tasks"
+
+    @user = User.find_by(username: params[:user][:username])
+    #binding.pry
+    if !logged_in? && @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      redirect "/users/home"
     else
       redirect "/login"
     end

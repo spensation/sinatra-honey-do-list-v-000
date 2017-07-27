@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    @user = User.new(params[:user])
     if @user.save
       erb :'/users/show'
     else
@@ -13,9 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:id' do
-    @user = User.find_by_id(:id)
-    erb :'/users/show'
+  get '/users/home' do
+    if logged_in?
+       @user = current_user
+       erb :'/users/show'
+     else
+       redirect '/login'
+     end
   end
 
 end

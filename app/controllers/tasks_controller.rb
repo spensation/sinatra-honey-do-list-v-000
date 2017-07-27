@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   end
 
   post '/tasks' do
-    @task = Task.new(:title => params[:title])
+    @task = Task.new(:name => params[:name])
     @task.save
 
     erb :'/tasks/show'
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
 
   patch '/tasks/:id' do
     @task = Task.find_by_id(params[:id])
-    @task.update(title: params[:title])
+    @task.update(name: params[:name])
     redirect "/tasks/#{params[:id]}"
   end
 
